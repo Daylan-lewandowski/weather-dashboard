@@ -1,24 +1,34 @@
 
+if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position) {
+        long = position.coords.longitude;
+        lat = position.coords.latitude;
+        
+    });
+    }
 
 
 
 
 
-var getWeather = function(city){
-    var apiURL = "api.openweathermap.org/data/2.5/weather?q=London,us&mode=xml&appid=62c4ff14764826079fb651d1fb610323"
+var getWeather = function(data){
+    var apiURL = "api.openweathermap.org/data/2.5/weather?lat= " +lat+ "&lon=" +long+ "&appid=62c4ff14764826079fb651d1fb610323"
         
     fetch(apiURL).then(function(response) {
 
     if(response.ok){
             response.json().then(function(data) {
-                displayWeather(data);
+                displayWeather(data , location);
             });
         }else {
             alert("Error :" + response.statusText);
         };
     });
+    console.log(getWeather);
 };
-
+var displayWeather = function(weather) {
+    
+}
  var cityInputE1 = document.querySelector("#city");
 var formSubmitHandler =function(event) {
     event.preventDefault();
@@ -41,4 +51,3 @@ var saveCity = function(){
 
 cityInputE1.addEventListener("submit", formSubmitHandler);
 
-getWeather();
