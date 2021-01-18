@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" href="./assets/style.css" />
-    <link rel="styleshet" href="api.openweathermap.org/data/2.5/forecast?q=&appid=2e4e160683080bb00e7407cc7a7dbaa0" >
-
-
-
+    <link rel="styleshet" href="http://api.openweathermap.org/data/2.5/forecast?q=&appid=62c4ff14764826079fb651d1fb610323">
 
     <title>Weather Dashboard</title>
 </head>
@@ -15,13 +13,24 @@
     <header class="hero">
         <h1>Weather Dashboard</h1>
     </header>
-    <div class="city-search" >
+    <main>
+        <div class="col-12 col-md-4">
+        <div class="search">
+            <h3>Search a City:</h3>
+            <form id="city-form" class="card-body">
+                <input name="city-name" id="city" type="text" autofocus="true" class="city-input" />
+                <button type="submit" class="btn">Find city</button>
+            </form>
+        </div>
+        </div>
         
-    </div>
-    
-
-
-    <script src="./assets/dashboard.js"></script>
+        <div class="col-12 col-md-8">
+            <div class="card">
+                <form id="weather-form"></form>
+            </div>
+        </div>
+        <script src="./assets/dashboard.js"></script>
+    </main>
 </body>
 
 </html>
